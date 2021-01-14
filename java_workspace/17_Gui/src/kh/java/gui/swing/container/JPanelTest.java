@@ -1,6 +1,5 @@
 package kh.java.gui.swing.container;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
 
 import javax.swing.JFrame;
@@ -13,8 +12,8 @@ public class JPanelTest extends JFrame{
 		
 		setTitle("세번째 프레임");
 				
-		setSize(800,400);
-		setLocation(1000,400);
+		setSize(800,600);
+		setLocation(800,400);
 		//JFrame 의 기본 LayoutManager 객체는 BorderLayout 이다.
 //		setLayout(new BorderLayout());  작성하지않아도 자동으로 작성되어있는다
 		//NULL LAYOUT : LAYOUT MANAGER 를 사용하지않고 직접 좌쵸를 지정한다,
@@ -35,30 +34,30 @@ public class JPanelTest extends JFrame{
 		JPanel panel1= new JPanel();
 //		panel1.setBackground(Color.magenta);
 		//RGB좌표 컬러넣는방법
-		panel1.setBounds(100,100,300,200);
+		panel1.setBounds(100,50,300,400);
 		panel1.setBackground(new Color(182, 205, 242));
 		
 		//라벨넣고  패널넣기
+		
+		
+		
 		JLabel label1= new JLabel("panel1");
-		//라벨 패널 추가
+		//라벨 패널에 추가
 		panel1.add(label1);
 					//패널1추가 위치 지정이다 윘쪾 위치지정해줬다
-		add(panel1,BorderLayout.NORTH);
 		setVisible(true);
-		
 		JPanel panel2= new JPanel();
-		
 		JLabel label2= new JLabel("panel2");
-		panel2.setBounds(400,100,300,400);
-
+		panel2.setBounds(400,50,300,400);
 		panel2.setBackground(new Color(190, 219, 171));
 
-		//라벨 패널 추가
+		//라벨 패널에 추가
 		panel2.add(label2);
-		add(panel2);
 		setVisible(true);
 		
-		
+		//프레임에 패널 추가
+		add(panel1);
+		add(panel2);
 		
 		
 		

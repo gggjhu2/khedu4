@@ -9,12 +9,17 @@ import javax.swing.JPanel;
 import kh.java.gui.util.MyUtil;
 public class BorderLayoutTest extends JFrame{
 	public BorderLayoutTest(int w, int h, String title) {
+		
+		
+		//현재객체
 		MyUtil.init(this,w,h,title);
 		JPanel north = new BorderPanel("북", Color.YELLOW);
-		JPanel south = new BorderPanel("남", Color.blue);
-		JPanel east = new BorderPanel("동", Color.DARK_GRAY);
+		JPanel south = new BorderPanel("남", new Color(0, 221, 255));
+		JPanel east = new BorderPanel("동", new Color(43, 227, 193));
 		JPanel west = new BorderPanel("서", Color.ORANGE);
 		JPanel center = new BorderPanel("가운데", Color.white);
+		
+		
 		//JFrame객체의 기본 Layout은 BorderLayout이다.
 		add(north,BorderLayout.NORTH);
 		add(south,BorderLayout.SOUTH);
