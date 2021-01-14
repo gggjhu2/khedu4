@@ -34,10 +34,8 @@ private void init() {
 		System.out.println(br.readLine());
 	
 		
-		//	//4. welcome message
-		pw.print("입장하였습니다..");
+		pw.println("안녕하세요.");
 		pw.flush();//버퍼가 가득 차지 않아도 전송하기  .버퍼내용을 즉시 쓰기
-		
 		
 		
 		

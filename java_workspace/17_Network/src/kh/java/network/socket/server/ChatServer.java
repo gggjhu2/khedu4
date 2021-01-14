@@ -26,30 +26,32 @@ public class ChatServer {
 	
 	
 	//서버프로그램 시작
-public void init() {
+	public void init() {
+		
+		try {
+			//1. Server Socket 생성
+			ServerSocket serverSocket =new ServerSocket(PORT);
+			System.out.println("["+InetAddress.getLocalHost().getHostAddress()+" : "+PORT+"] 에서 연결대기중...");
 	
-	try {
-		//1. Server Socket 생성
-		ServerSocket serverSocket =new ServerSocket(PORT);
-		System.out.println("["+InetAddress.getLocalHost().getHostAddress()+" : "+PORT+"] 에서 연결대기중...");
-
+			
+			//2. Client 연결요청이 있을떄 , 소켓을 새로 생성해 통신
+			Socket socket =serverSocket.accept();
+			
+			
+			//3.소켓용 입출력 스트림 준비.
+								//보조스트림                      브릿지스트림                              기본스트림
+			BufferedReader br =new BufferedReader(new InputStreamReader(socket.getInputStream()));
+			PrintWriter pw =new PrintWriter(socket.getOutputStream());
+			
+			//4. welcome message
+			pw.println("환영합니다.");
+			pw.flush();//버퍼가 가득 차지 않아도 전송하기  .버퍼내용을 즉시 쓰기
+			
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		
-		//2. Client 연결요청이 있을떄 , 소켓을 새로 생성해 통신
-		Socket socket =serverSocket.accept();
 		
-		
-		//3.소켓용 입출력 스트림 준비.
-							//보조스트림                      브릿지스트림                              기본스트림
-		BufferedReader br =new BufferedReader(new InputStreamReader(socket.getInputStream()));
-		PrintWriter pw =new PrintWriter(socket.getOutputStream());
-		
-		//4. welcome message
-		pw.print("환영합니다.");
-		pw.flush();//버퍼가 가득 차지 않아도 전송하기  .버퍼내용을 즉시 쓰기
-	} catch (IOException e) {
-		e.printStackTrace();
-	}
-	
-	
-	}
+		}
 }
