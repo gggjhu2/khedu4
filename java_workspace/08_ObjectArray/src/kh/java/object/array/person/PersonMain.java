@@ -16,6 +16,7 @@ public class PersonMain {
 	 * @실습문제
 	 * 사용자 입력받아서 3명의 Person정보를 배열에 담고, 출력하세요
 	 */
+	}
 	public void test3() {
 		Person[] arr =  new Person[3];
 		Scanner sc = new Scanner(System.in);
@@ -86,7 +87,7 @@ public class PersonMain {
 	
 	public void test4() {
 		
-		String s1 = new String(“1”);
+		String s1 = new String("1");
 System.out.println(s1);
 	}
 
