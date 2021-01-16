@@ -2,7 +2,7 @@ package kh.java.email.vo;
 
 import java.io.Serializable;
 
-public class Email implements Serializable{
+public class Email implements Serializable {
 
 	private String email;
 
@@ -15,7 +15,7 @@ public class Email implements Serializable{
 		super();
 		this.email = email;
 	}
-	
+
 	public String getEmail() {
 		return email;
 	}
@@ -28,5 +28,7 @@ public class Email implements Serializable{
 	public String toString() {
 		return "Email [email=" + email + "]";
 	}
+	
+	
 	
 }
