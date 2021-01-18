@@ -4,76 +4,58 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-
 public class ScoreFrame extends JFrame{
-	private JButton calcbtn;
-	private JLabel lb;
-	private JTextField javaScore;
-	private JTextField sqlScore;
-	private JTextField total;
-	private JTextField average;
-	
-	ScoreFrame(){ 
-	super();
-	setBounds(200, 100, 400, 300);
-	
-	JPanel centerPane = new JPanel();
-	centerPane.setLayout(new GridLayout(4,1,0,0));
-	
-	JLabel title = new JLabel("점수를 입력해주세요");
-	JPanel titlePanel = new JPanel();
-	titlePanel.add(title);
-	
-	JPanel centerPane1 = new JPanel();	
-	javaScore = new JTextField(10);
-	sqlScore = new JTextField(10);
-	centerPane1.add(new JLabel("자바 :"));
-	centerPane1.add(javaScore);
-	centerPane1.add(new JLabel("SQL :"));
-	centerPane1.add(sqlScore);
-	
-	JPanel centerPane2 = new JPanel();
-	
-	calcbtn = new JButton("계산하기");
-	calcbtn.addActionListener(new ActionHandler());
-	centerPane2.add(calcbtn);
-	
-	
-	
-	
-	JPanel centerPane3 = new JPanel();
-	total = new JTextField(10);
-	average = new JTextField(10);
-	
-	centerPane3.add(new JLabel("총점 :"));
-	centerPane3.add(total);
-	centerPane3.add(new JLabel("평균 :"));
-	centerPane3.add(average);
-	
-	centerPane.add(titlePanel);
-	centerPane.add(centerPane1);
-	centerPane.add(centerPane2);
-	centerPane.add(centerPane3);
-	
-	add(centerPane);
-	
-	setVisible(true);
-	setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	
-	}
-
-	public class ActionHandler implements ActionListener{
-
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			int s1 = Integer.parseInt(javaScore.getText());
-			int s2 = Integer.parseInt(sqlScore.getText());
-			total.setText(String.valueOf(s1+s2));
-			average.setText(String.valueOf((s1+s2)/2));
-		}
-	}
+    JTextField javaScore = new JTextField(10);
+    JTextField sqlScore = new JTextField(10);
+    JTextField total = new JTextField(10);
+    JTextField average = new JTextField(10);
+    public ScoreFrame(){
+        this.setTitle("                                   문제 7");
+        this.setSize(400,300);
+        JPanel pan0 = new JPanel();
+        pan0.setLayout(new GridLayout(1,1));
+        JPanel pan1 = new JPanel();
+        JPanel pan2 = new JPanel();
+        JPanel pan3 = new JPanel();
+        JLabel label = new JLabel("점수를 입력하세요");
+        label.setFont(label.getFont().deriveFont(40.0f));
+        label.setHorizontalAlignment(JLabel.CENTER);
+        pan0.add(label);
+        JLabel jScore = new JLabel("자바: ");
+        JLabel sScore = new JLabel("SQL: ");
+        JLabel sum = new JLabel("총점: ");
+        JLabel avg = new JLabel("평균: ");
+        pan1.add(jScore);
+        pan1.add(javaScore);
+        pan1.add(sScore);
+        pan1.add(sqlScore);
+        JButton cal = new JButton("계산하기");
+        cal.setSize(30,5);
+        pan2.add(cal);
+        cal.addActionListener(new MyEvent());
+        pan3.add(sum);
+        pan3.add(total);
+        pan3.add(avg);
+        pan3.add(average);
+        this.setLayout(new GridLayout(4,1));
+        this.add(pan0);
+        this.add(pan1);
+        this.add(pan2);
+        this.add(pan3);
+        this.setLocationRelativeTo(null);
+        this.setVisible(true);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
+    private class MyEvent implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            int score1 = Integer.parseInt(javaScore.getText());
+            int score2 = Integer.parseInt(sqlScore.getText());
+            total.setText(score1+score2+"");
+            average.setText((score1+score2)/2 + "");
+        }
+    }
 }

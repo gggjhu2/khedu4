@@ -67,6 +67,12 @@ public class EmailFrame extends JFrame{
 		add(listPanel);
 	}
 
+	public EmailFrame(int i, int j, String string, String center) {
+		
+		
+		
+	}
+
 	protected void loadEmailList() {
 		List<Email>list =emailController.loadEmailList();
 		System.out.println("list@emailFrame = " +list);
