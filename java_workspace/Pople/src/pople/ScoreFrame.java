@@ -35,7 +35,7 @@ public class ScoreFrame extends JFrame{
         JButton cal = new JButton("계산하기");
         cal.setSize(30,5);
         pan2.add(cal);
-        cal.addActionListener(new MyEvent());
+        cal.addActionListener(new ActionHandler());
         pan3.add(sum);
         pan3.add(total);
         pan3.add(avg);
@@ -49,7 +49,7 @@ public class ScoreFrame extends JFrame{
         this.setVisible(true);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
-    private class MyEvent implements ActionListener {
+    private class ActionHandler implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
             int score1 = Integer.parseInt(javaScore.getText());
